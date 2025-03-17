@@ -1,4 +1,8 @@
-// import "@fortawesome/fontawesome-free/css/all.min.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
+const scrollToSection = () => {
+  document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
+};
 
 export default function Home() {
   return (
@@ -11,15 +15,16 @@ export default function Home() {
 
           <div className="mt-6 flex flex-col items-center space-y-3">
             <div className="flex space-x-4">
-              <Button text="Projects" />
-              <Button text="Contact" />
+              <Button icon={<i class="fa-solid fa-flask-vial"></i>} text="Projects" onClick={scrollToSection}/>
+              <Button icon={<i class="fa-solid fa-address-book"></i>} text="Contact" />
             </div>
             <div className="flex space-x-4">
-              <Button text="Skills" />
-              <Button text="About" />
+              <Button icon={<i class="fa-solid fa-dumbbell"></i>} text="Skills" />
+              <Button icon={<i class="fa-solid fa-user"></i>} text="About" />
             </div>
-            <button className="px-6 py-2 mt-3 bg-gray-600 hover:bg-gray-500 rounded-lg text-white">
-              Resume
+            <button className="px-6 py-2 mt-3 bg-gray-700 hover:bg-gray-600 rounded-lg text-white gap-x-2">
+              <i class="fa-solid fa-file"></i> 
+              <span className="ml-2">Resume</span>
             </button>
           </div>
         </div>
@@ -33,7 +38,7 @@ export default function Home() {
           <img
             src="src\assets\EDang.jpg" // Replace with actual profile image URL
             alt="Profile"
-            className="w-64 h-64 rounded-full border-4 border-blue-400"
+            className="w-64 h-64 rounded-full border-2 border-blue-300"
           />
 
           {/* Bio */}
@@ -42,11 +47,11 @@ export default function Home() {
             <p className="mt-2">
               I am a Computer Science and Data Science double major at Worcester
               Polytechnic Institute (WPI). My passion for technology comes from
-              a desire to simplify everyday tasks and optimize processes.
+              a desire to simplify everyday tasks while optimizing the process.
             </p>
-            <p className="mt-2">
-              In my free time, I enjoy <strong>weightlifting</strong>,
-              <strong> photography</strong>, <strong>traveling</strong>, and
+            <p className="mt-3">
+              In my free time, I enjoy weightlifting,
+               photography, traveling, and
               meeting new people.
             </p>
           </div>
@@ -54,60 +59,63 @@ export default function Home() {
       </div>
 
       {/* Projects Section */}
-      <div className="flex flex-col items-center justify-center min-h-screen px-6">
-        <h2 className="text-3xl font-bold mb-6">Projects</h2>
-        <div className="border-t border-gray-500 w-3/4 mb-6"></div>
+        <div className="flex flex-col items-center justify-center min-h-screen px-6">
+          <section id="projects">
+            <h2 className="text-3xl font-bold mb-6">Projects</h2>
+          </section>
+          <div className="border-t border-gray-500 w-3/4 mb-6"></div>
 
-        <div className="max-w-4xl space-y-8">
-          {/* Project 1 */}
-          <Project
-            img="src\assets\BWH.png"
-            title="Brigham and Women's Hospital Application (Sponsored)"
-            description="A dashboard application for employees and patients for Brigham and Women's Hospital"
-          />
+          <div className="max-w-4xl space-y-8">
+            {/* Project 1 */}
+            <Project
+              img="src\assets\BWH.png"
+              title="Brigham and Women's Hospital Application (Sponsored)"
+              description="A dashboard application for employees and patients for Brigham and Women's Hospital"
+            />
 
-          {/* Project 2 */}
-          <Project
-            img="src\assets\360Energy.png"
-            title="360 Energy Project (Sponsored)"
-            description="A web-based dashboard for 360 Energy to manage their solar panels and battery stations"
-          />
+            {/* Project 2 */}
+            <Project
+              img="src\assets\360Energy.png"
+              title="360 Energy Project (Sponsored)"
+              description="A web-based dashboard for 360 Energy to manage their solar panels and battery stations"
+            />
 
-          {/* Project 3 */}
-          <Project
-            img="src\assets\GermanTrafficSigns.png"
-            title="Machine Learning German Traffic Sign Program"
-            description="Machine learning program that identifies German Traffic signs with varying picture qualities"
-          />
+            {/* Project 3 */}
+            <Project
+              img="src\assets\GermanTrafficSigns.png"
+              title="Machine Learning German Traffic Sign Program"
+              description="Machine learning program that identifies German Traffic signs with varying picture qualities"
+            />
 
-          {/* Project 4 */}
-          <Project
-            img="src\assets\SSDLC.png"
-            title="Secure Software Development Life Cycle Research Project"
-            description="A research project with the National Cyber Security Academy building a web application to learn and practice cyber security attacks and how to prevent them"
-          />
+            {/* Project 4 */}
+            <Project
+              img="src\assets\SSDLC.png"
+              title="Secure Software Development Life Cycle Research Project"
+              description="A research project with the National Cyber Security Academy building a web application to learn and practice cyber security attacks and how to prevent them"
+            />
+          </div>
         </div>
-      </div>
     </div>
   );
 }
 
 // Reusable Button Component
-const Button = ({ icon, text }) => (
-  <button className="flex items-center space-x-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-white">
+const Button = ({ icon, text, onClick}) => (
+  <button className="flex items-center space-x-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-white" onClick={onClick}>
     <span>{icon}</span>
     <span>{text}</span>
   </button>
 );
 
 // Reusable Project Component
-const Project = ({ img, title, description }) => (
+const Project = ({ img, title, description}) => (
   <div className="flex items-center space-x-6">
     <img src={img} alt={title} className="w-80 h-56 rounded-lg object-cover" /> {/* Adjust size as needed  40 28*/}
-    <div className="text-gray-300">
-      <h3 className="text-lg font-semibold">{title}</h3>
-      <p className="text-sm mt-1">{description}</p>
-      <p className="text-blue-400 mt-1 cursor-pointer hover:underline">
+    <div className="text-gray-300 flex flex-col items-center">
+      <h3 className="text-lg font-semibold text-center">{title}</h3>
+      <hr className="w-full mt-3 mb-3 border-gray-800 my-2" />
+      <p className="text-sm mt-1 text-center">{description}</p>
+      <p className="text-blue-400 mt-2 cursor-pointer hover:underline">
         Project Report
       </p>
     </div>
