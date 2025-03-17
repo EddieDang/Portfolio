@@ -1,8 +1,41 @@
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
-const scrollToSection = () => {
+const scrollToProjects = () => {
   document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
 };
+const scrollToContact = () => {
+  document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+};
+const scrollToSkills = () => {
+  document.getElementById("skills").scrollIntoView({ behavior: "smooth" });
+};
+const scrollToAbout = () => {
+  document.getElementById("about").scrollIntoView({ behavior: "smooth" });
+};
+const skillsData = [
+  {
+    title: "Programming Languages",
+    icon: <i class="fa-solid fa-gear"></i>,
+    borderColor: "border-red-500",
+    skills: ["Java", "Python", "SQL", "C", "React", "HTML", "CSS", "JavaScript"],
+  },
+  {
+    title: "Frameworks",
+    icon: <i class="fa-solid fa-cloud"></i>,
+    borderColor: "border-green-500",
+    skills: ["Node.js", "Express", "JavaFX", "JUnit", "Tailwind"],
+  },
+  {
+    title: "Tools",
+    icon: <i class="fa-solid fa-screwdriver-wrench"></i>,
+    borderColor: "border-blue-500",
+    skills: [
+      "AWS", "MySQL", "Oracle", "Git", "Jira", "Excel",
+      "Python Pandas", "Matplotlib", "BeautifulSoup",
+      "Jupyter Notebook", "Google Colab", "Tableau"
+    ],
+  },
+];
 
 export default function Home() {
   return (
@@ -15,12 +48,12 @@ export default function Home() {
 
           <div className="mt-6 flex flex-col items-center space-y-3">
             <div className="flex space-x-4">
-              <Button icon={<i class="fa-solid fa-flask-vial"></i>} text="Projects" onClick={scrollToSection}/>
-              <Button icon={<i class="fa-solid fa-address-book"></i>} text="Contact" />
+              <Button icon={<i class="fa-solid fa-flask-vial"></i>} text="Projects" onClick={scrollToProjects}/>
+              <Button icon={<i class="fa-solid fa-address-book"></i>} text="Contact" onClick={scrollToContact}/>
             </div>
             <div className="flex space-x-4">
-              <Button icon={<i class="fa-solid fa-dumbbell"></i>} text="Skills" />
-              <Button icon={<i class="fa-solid fa-user"></i>} text="About" />
+              <Button icon={<i class="fa-solid fa-dumbbell"></i>} text="Skills" onClick={scrollToSkills}/>
+              <Button icon={<i class="fa-solid fa-user"></i>} text="About" onClick={scrollToAbout}/>
             </div>
             <button className="px-6 py-2 mt-3 bg-gray-700 hover:bg-gray-600 rounded-lg text-white gap-x-2">
               <i class="fa-solid fa-file"></i> 
@@ -32,7 +65,9 @@ export default function Home() {
 
       {/* About Me Section */}
       <div className="flex flex-col items-center justify-center min-h-[50vh] px-6">
-        <h2 className="text-3xl font-bold mb-4">About Me</h2>
+        <section id="about">
+          <h2 className="text-3xl font-bold mb-4">About Me</h2>
+        </section>
         <div className="flex items-center space-x-6 max-w-3xl">
           {/* Profile Picture */}
           <img
@@ -57,6 +92,29 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* Skills Section */}
+      <div className="flex flex-col items-center bg-black text-white py-12">
+      <section id="skills">
+        <h2 className="text-4xl font-bold mb-8">Skills</h2>
+      </section>
+      <div className="flex flex-col md:flex-row gap-6">
+        {skillsData.map((category, index) => (
+          <div
+            key={index}
+            className={`w-80 p-6 bg-gray-800 ${category.borderColor} border-2 rounded-lg text-center`}
+          >
+            <div className="flex justify-center mb-4 text-white">{category.icon}</div>
+            <h3 className="text-xl font-semibold mb-4">{category.title}</h3>
+            <ul className="text-sm space-y-1">
+              {category.skills.map((skill, i) => (
+                <li key={i}>• {skill}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
 
       {/* Projects Section */}
         <div className="flex flex-col items-center justify-center min-h-screen px-6">
