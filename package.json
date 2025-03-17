@@ -9,11 +9,13 @@
     "build": "vite build"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.0.14",
+    "cross-env": "^7.0.3",
     "express": "^4.18.2",
-    "react-dom": "^18.2.0",
     "react": "^18.2.0",
-    "vite-express": "*",
-    "cross-env": "^7.0.3"
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^4.0.14",
+    "vite-express": "*"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",

@@ -1,34 +1,115 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import "./App.css";
+// import "@fortawesome/fontawesome-free/css/all.min.css";
 
-function App() {
-  const [count, setCount] = useState(0);
-
+export default function Home() {
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="bg-black text-white">
+      {/* Landing Page */}
+      <div className="flex items-center justify-center h-screen">
+        <div className="text-center">
+          <h1 className="text-8xl font-bold">Edward Dang</h1>
+          <p className="text-lg text-gray-400 mt-2">Full-Stack Developer</p>
+
+          <div className="mt-6 flex flex-col items-center space-y-3">
+            <div className="flex space-x-4">
+              <Button text="Projects" />
+              <Button text="Contact" />
+            </div>
+            <div className="flex space-x-4">
+              <Button text="Skills" />
+              <Button text="About" />
+            </div>
+            <button className="px-6 py-2 mt-3 bg-gray-600 hover:bg-gray-500 rounded-lg text-white">
+              Resume
+            </button>
+          </div>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR!
-        </p>
+
+      {/* About Me Section */}
+      <div className="flex flex-col items-center justify-center min-h-[50vh] px-6">
+        <h2 className="text-3xl font-bold mb-4">About Me</h2>
+        <div className="flex items-center space-x-6 max-w-3xl">
+          {/* Profile Picture */}
+          <img
+            src="src\assets\EDang.jpg" // Replace with actual profile image URL
+            alt="Profile"
+            className="w-64 h-64 rounded-full border-4 border-blue-400"
+          />
+
+          {/* Bio */}
+          <div className="text-gray-300">
+            <p className="text-lg font-semibold">Hi There!</p>
+            <p className="mt-2">
+              I am a Computer Science and Data Science double major at Worcester
+              Polytechnic Institute (WPI). My passion for technology comes from
+              a desire to simplify everyday tasks and optimize processes.
+            </p>
+            <p className="mt-2">
+              In my free time, I enjoy <strong>weightlifting</strong>,
+              <strong> photography</strong>, <strong>traveling</strong>, and
+              meeting new people.
+            </p>
+          </div>
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
+      {/* Projects Section */}
+      <div className="flex flex-col items-center justify-center min-h-screen px-6">
+        <h2 className="text-3xl font-bold mb-6">Projects</h2>
+        <div className="border-t border-gray-500 w-3/4 mb-6"></div>
+
+        <div className="max-w-4xl space-y-8">
+          {/* Project 1 */}
+          <Project
+            img="src\assets\BWH.png"
+            title="Brigham and Women's Hospital Application (Sponsored)"
+            description="A dashboard application for employees and patients for Brigham and Women's Hospital"
+          />
+
+          {/* Project 2 */}
+          <Project
+            img="src\assets\360Energy.png"
+            title="360 Energy Project (Sponsored)"
+            description="A web-based dashboard for 360 Energy to manage their solar panels and battery stations"
+          />
+
+          {/* Project 3 */}
+          <Project
+            img="src\assets\GermanTrafficSigns.png"
+            title="Machine Learning German Traffic Sign Program"
+            description="Machine learning program that identifies German Traffic signs with varying picture qualities"
+          />
+
+          {/* Project 4 */}
+          <Project
+            img="src\assets\SSDLC.png"
+            title="Secure Software Development Life Cycle Research Project"
+            description="A research project with the National Cyber Security Academy building a web application to learn and practice cyber security attacks and how to prevent them"
+          />
+        </div>
+      </div>
     </div>
   );
 }
 
-export default App;
+// Reusable Button Component
+const Button = ({ icon, text }) => (
+  <button className="flex items-center space-x-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-white">
+    <span>{icon}</span>
+    <span>{text}</span>
+  </button>
+);
+
+// Reusable Project Component
+const Project = ({ img, title, description }) => (
+  <div className="flex items-center space-x-6">
+    <img src={img} alt={title} className="w-80 h-56 rounded-lg object-cover" /> {/* Adjust size as needed  40 28*/}
+    <div className="text-gray-300">
+      <h3 className="text-lg font-semibold">{title}</h3>
+      <p className="text-sm mt-1">{description}</p>
+      <p className="text-blue-400 mt-1 cursor-pointer hover:underline">
+        Project Report
+      </p>
+    </div>
+  </div>
+);
