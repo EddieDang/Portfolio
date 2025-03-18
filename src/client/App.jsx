@@ -71,7 +71,7 @@ export default function Home() {
         <div className="flex items-center space-x-6 max-w-3xl">
           {/* Profile Picture */}
           <img
-            src="src\assets\EDang.jpg" // Replace with actual profile image URL
+            src="src\assets\EDang.jpg"
             alt="Profile"
             className="w-64 h-64 rounded-full border-2 border-blue-300"
           />
@@ -168,7 +168,7 @@ const Button = ({ icon, text, onClick}) => (
 // Reusable Project Component
 const Project = ({ img, title, description}) => (
   <div className="flex items-center space-x-6">
-    <img src={img} alt={title} className="w-80 h-56 rounded-lg object-cover" /> {/* Adjust size as needed  40 28*/}
+    <img src={img} alt={title} className="w-80 h-56 rounded-lg object-cover" />
     <div className="text-gray-300 flex flex-col items-center">
       <h3 className="text-lg font-semibold text-center">{title}</h3>
       <hr className="w-full mt-3 mb-3 border-gray-800 my-2" />
