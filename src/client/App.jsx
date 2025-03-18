@@ -1,4 +1,11 @@
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import EDang from "../assets/EDang.jpg";
+import BWH from "../assets/BWH.png";
+import SSDLC from "../assets/SSDLC.png";
+import Energy from "../assets/360Energy.png";
+import GermanTrafficSigns from "../assets/GermanTrafficSigns.png";
+
+
 
 const scrollToProjects = () => {
   document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
@@ -71,7 +78,7 @@ export default function Home() {
         <div className="flex items-center space-x-6 max-w-3xl">
           {/* Profile Picture */}
           <img
-            src="src\assets\EDang.jpg"
+            src= {EDang}
             alt="Profile"
             className="w-64 h-64 rounded-full border-2 border-blue-300"
           />
@@ -126,28 +133,28 @@ export default function Home() {
           <div className="max-w-4xl space-y-8">
             {/* Project 1 */}
             <Project
-              img="src\assets\BWH.png"
+              img={BWH}
               title="Brigham and Women's Hospital Application (Sponsored)"
               description="A dashboard application for employees and patients for Brigham and Women's Hospital"
             />
 
             {/* Project 2 */}
             <Project
-              img="src\assets\360Energy.png"
+              img={Energy}
               title="360 Energy Project (Sponsored)"
               description="A web-based dashboard for 360 Energy to manage their solar panels and battery stations"
             />
 
             {/* Project 3 */}
             <Project
-              img="src\assets\GermanTrafficSigns.png"
+              img={GermanTrafficSigns}
               title="Machine Learning German Traffic Sign Program"
               description="Machine learning program that identifies German Traffic signs with varying picture qualities"
             />
 
             {/* Project 4 */}
             <Project
-              img="src\assets\SSDLC.png"
+              img={SSDLC}
               title="Secure Software Development Life Cycle Research Project"
               description="A research project with the National Cyber Security Academy building a web application to learn and practice cyber security attacks and how to prevent them"
             />
