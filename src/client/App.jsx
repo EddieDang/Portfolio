@@ -4,6 +4,10 @@ import BWH from "../assets/BWH.png";
 import SSDLC from "../assets/SSDLC.png";
 import Energy from "../assets/360Energy.png";
 import GermanTrafficSigns from "../assets/GermanTrafficSigns.png";
+import Resume from "../assets/EDangResume.pdf";
+import GTSR from "../assets/German Traffic Sign Machine Learning Program - Edward Dang.pdf";
+import BWHReport from "../assets/Brigham and Women's Hospital Application - Edward Dang.pdf";
+import EnergyReport from "../assets/360 Energy - Edward Dang.pdf";
 
 
 
@@ -62,10 +66,9 @@ export default function Home() {
               <Button icon={<i class="fa-solid fa-dumbbell"></i>} text="Skills" onClick={scrollToSkills}/>
               <Button icon={<i class="fa-solid fa-user"></i>} text="About" onClick={scrollToAbout}/>
             </div>
-            <button className="px-6 py-2 mt-3 bg-gray-700 hover:bg-gray-600 rounded-lg text-white gap-x-2">
-              <i class="fa-solid fa-file"></i> 
-              <span className="ml-2">Resume</span>
-            </button>
+            <a href={Resume} target="_blank" rel="noopener noreferrer">
+              <Button icon={<i class="fa-solid fa-file"></i> } text="Resume" />
+            </a>
           </div>
         </div>
       </div>
@@ -136,6 +139,7 @@ export default function Home() {
               img={BWH}
               title="Brigham and Women's Hospital Application (Sponsored)"
               description="A dashboard application for employees and patients for Brigham and Women's Hospital"
+              ProjectReport={BWHReport}
             />
 
             {/* Project 2 */}
@@ -143,6 +147,7 @@ export default function Home() {
               img={Energy}
               title="360 Energy Project (Sponsored)"
               description="A web-based dashboard for 360 Energy to manage their solar panels and battery stations"
+              ProjectReport={EnergyReport}
             />
 
             {/* Project 3 */}
@@ -150,6 +155,7 @@ export default function Home() {
               img={GermanTrafficSigns}
               title="Machine Learning German Traffic Sign Program"
               description="Machine learning program that identifies German Traffic signs with varying picture qualities"
+              ProjectReport={GTSR}
             />
 
             {/* Project 4 */}
@@ -160,29 +166,54 @@ export default function Home() {
             />
           </div>
         </div>
+
+      {/* Contact Section */}
+      <div className="social-links-container flex flex-col items-center justify-center min-h-screen px-6">
+        <section id="contact">
+          <h2 className="text-3xl font-bold mb-6">Contact Me</h2>
+        </section>
+        <div className="border-t border-gray-500 w-3/4 mb-6"></div>
+          <div className="flex flex-row space-x-8">
+            <a href="https://www.linkedin.com/in/edwarddang3/" target="_blank" rel="noopener noreferrer" className="social-link text-8xl">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href={Resume} target="_blank" rel="noopener noreferrer" className="social-link text-8xl">
+              <i class="fa-solid fa-file"></i>
+            </a>
+            <a href="mailto:edwarddang3@gmail.com" target="_blank" rel="noopener noreferrer" className="social-link text-8xl">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+            <a href="https://github.com/EddieDang" target="_blank" rel="noopener noreferrer" className="social-link text-8xl">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+      </div>
+
     </div>
   );
 }
 
 // Reusable Button Component
 const Button = ({ icon, text, onClick}) => (
-  <button className="flex items-center space-x-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-white" onClick={onClick}>
+  <button className="flex items-center space-x-2 px-8 py-4 bg-gray-700 hover:bg-gray-600 rounded-lg text-white text-xl" onClick={onClick}>
     <span>{icon}</span>
     <span>{text}</span>
   </button>
 );
 
 // Reusable Project Component
-const Project = ({ img, title, description}) => (
+const Project = ({ img, title, description, ProjectReport}) => (
   <div className="flex items-center space-x-6">
     <img src={img} alt={title} className="w-80 h-56 rounded-lg object-cover" />
     <div className="text-gray-300 flex flex-col items-center">
       <h3 className="text-lg font-semibold text-center">{title}</h3>
       <hr className="w-full mt-3 mb-3 border-gray-800 my-2" />
       <p className="text-sm mt-1 text-center">{description}</p>
-      <p className="text-blue-400 mt-2 cursor-pointer hover:underline">
-        Project Report
-      </p>
+      <a href={ProjectReport} target="_blank" rel="noopener noreferrer">
+        <p className="text-blue-400 mt-2 cursor-pointer hover:underline">
+          Project Report
+        </p>
+      </a>
     </div>
   </div>
 );
