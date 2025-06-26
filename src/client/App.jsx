@@ -147,7 +147,7 @@ export default function Home() {
               img={Energy}
               title="360 Energy Project (Sponsored)"
               description="A web-based dashboard for 360 Energy to manage their solar panels and battery stations"
-              ProjectReport={EnergyReport}
+              ProjectReport={"https://digital.wpi.edu/concern/student_works/mp48sh69h?locale=en"}
             />
 
             {/* Project 3 */}
