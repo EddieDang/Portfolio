@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronUp, Mail, Github, Linkedin, FileText, User, Code, Briefcase, Phone, MapPin, Calendar, Award, Coffee, Camera, Dumbbell, Plane } from 'lucide-react';
+
+// Images
 import Me from '../assets/EDang.jpg';
 import Energy from '../assets/360Energy.png';
 import BWH from '../assets/BWH.png';
 import Traffic from '../assets/GermanTrafficSigns.png';
 import Security from '../assets/SSDLC.png';
 
-import Resume from '../assets/EDangResume.pdf';
-import EnergyReport from '../assets/360 Energy - Edward Dang.pdf';
-import BWHReport from "../assets/Brigham and Women's Hospital Application - Edward Dang.pdf";
+// Reports
+// import Resume from '../assets/EDangResume.pdf';
+// import BWHReport from "../assets/Brigham and Women's Hospital Application - Edward Dang.pdf";
 import TrafficReport from '../assets/German Traffic Sign Machine Learning Program - Edward Dang.pdf';
 
 
@@ -152,23 +154,21 @@ const EnhancedPortfolio = () => {
       title: "Brigham and Women's Hospital Application",
       description: "A comprehensive dashboard application for employees and patients at Brigham and Women's Hospital, featuring real-time data visualization and patient management systems.",
       image: projectImages.bwh,
-      tags: ["Java", "JavaFX", "MySQL", "Healthcare"],
+      tags: ["Java", "JavaFX", "SQL", "AWS"],
       duration: "4 months",
       team: "11 members",
       achievements: ["Reduced database retrival time by 500%", "Implemented Google auth, SHA-256 Hashing, and salting secruity features", "Enhanced user satisfaction"],
-      demoLink: "#",
-      reportLink: BWHReport
+      reportLink: "#"
     },
     {
       id: 2,
       title: "360 Energy Management Dashboard",
       description: "A web-based dashboard for 360 Energy to monitor and manage their solar panels and battery stations, with predictive analytics and performance optimization.",
       image: projectImages.energy,
-      tags: ["React", "Node.js", "AWS", "Energy"],
+      tags: ["React", "Python", "Node.js", "MongoDB", "APIs", "Data Visualization"],
       duration: "6 months",
       team: "2 members",
-      achievements: ["25% increase in energy efficiency", "Real-time monitoring system", "Predictive maintenance alerts"],
-      demoLink: "#",
+      achievements: ["Reduced manual reporting by 100%", "Real-time monitoring system", "Predictive modeling"],
       reportLink: "https://digital.wpi.edu/concern/student_works/mp48sh69h?locale=en"
     },
     {
@@ -227,12 +227,6 @@ const EnhancedPortfolio = () => {
                 </button>
               ))}
             </div>
-            <button
-              onClick={() => setDarkMode(!darkMode)}
-              className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-all duration-300"
-            >
-              {darkMode ? '☀️' : '🌙'}
-            </button>
           </div>
         </div>
       </nav>
@@ -242,14 +236,14 @@ const EnhancedPortfolio = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-cyan-600/20"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
           <div className="mb-8">
-            <h1 className="text-6xl md:text-8xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+            <h1 className="text-6xl md:text-8xl py-4 font-bold mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
               {typedText}
               <span className="animate-pulse">|</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-2">{subtitle}</p>
             <p className="text-lg text-gray-400 flex items-center justify-center gap-2">
               <MapPin className="w-4 h-4" />
-              Worcester, MA • Available for opportunities
+              Massachusetts • Available for opportunities
             </p>
           </div>
           
@@ -295,7 +289,7 @@ const EnhancedPortfolio = () => {
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-20 animate-pulse"></div>
+                
               </div>
               
               <div className="space-y-6">
@@ -305,8 +299,7 @@ const EnhancedPortfolio = () => {
                     Hello there! 👋
                   </h3>
                   <p className="text-lg text-gray-300 leading-relaxed">
-                    I'm a Computer Science and Data Science double major at Worcester Polytechnic Institute (WPI), 
-                    graduating in 2025. My passion for technology stems from a desire to simplify everyday tasks 
+                    I am a recent college graduate from Worcester Polytechnic Institute (WPI) with a double degree in Computer Science and Data Science. My passion for technology stems from a desire to simplify everyday tasks 
                     while optimizing processes and creating meaningful impact.
                   </p>
                 </div>
@@ -398,7 +391,7 @@ const EnhancedPortfolio = () => {
             }`}
             data-id="projects"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 py-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
               Featured Projects
             </h2>
             
@@ -451,13 +444,17 @@ const EnhancedPortfolio = () => {
                       </ul>
                     </div>
                     
+                    
+
                     <div className="flex gap-4">
-                      <a
+                      { project.demoLink && (
+                        <a
                         href={project.demoLink}
                         className="flex items-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg transition-colors duration-300"
-                      >
+                      > 
                         <span>Live Demo</span>
                       </a>
+                      )}
                       <a
                         href={project.reportLink}
                         className="flex items-center gap-2 px-4 py-2 bg-gray-600 hover:bg-gray-700 rounded-lg transition-colors duration-300"
@@ -495,20 +492,19 @@ const EnhancedPortfolio = () => {
                 <div>
                   <h3 className="text-2xl font-semibold mb-6">Get in Touch</h3>
                   <p className="text-gray-300 mb-8">
-                    I'm always open to discussing new opportunities, interesting projects, 
-                    or just having a conversation about technology and innovation.
+                    I'm always open to discussing new opportunities and interesting projects.
                   </p>
                 </div>
                 
                 <div className="space-y-6">
                   <a
-                    href="mailto:edwarddang3@gmail.com"
+                    href=""
                     className="flex items-center gap-4 p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-white/20"
                   >
                     <Mail className="w-8 h-8 text-blue-400" />
                     <div>
                       <div className="font-semibold">Email</div>
-                      <div className="text-gray-400">edwarddang3@gmail.com</div>
+                      <div className="text-gray-400">contact@edwarddang.com</div>
                     </div>
                   </a>
                   
