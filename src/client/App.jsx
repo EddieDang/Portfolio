@@ -7,6 +7,7 @@ import Energy from '../assets/360Energy.png';
 import BWH from '../assets/BWH.png';
 import Traffic from '../assets/GermanTrafficSigns.png';
 import Security from '../assets/SSDLC.png';
+import CCI from '../assets/CCI.png';
 
 // Reports
 // import Resume from '../assets/EDangResume.pdf';
@@ -20,7 +21,8 @@ const projectImages = {
   bwh: BWH,
   energy: Energy,
   traffic: Traffic,
-  security: Security
+  security: Security,
+  CCI: CCI
 };
 
 const EnhancedPortfolio = () => {
@@ -92,17 +94,6 @@ const EnhancedPortfolio = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    setFormStatus('sending');
-    // Simulate form submission
-    setTimeout(() => {
-      setFormStatus('success');
-      setFormData({ name: '', email: '', message: '' });
-      setTimeout(() => setFormStatus(''), 3000);
-    }, 1000);
-  };
-
   const skillsData = [
     {
       title: "Programming Languages",
@@ -110,13 +101,12 @@ const EnhancedPortfolio = () => {
       borderColor: "border-blue-500",
       bgGradient: "from-blue-500/20 to-blue-600/20",
       skills: [
-        { name: "Java", level: 90 },
-        { name: "Python", level: 85 },
-        { name: "JavaScript", level: 80 },
-        { name: "SQL", level: 75 },
-        { name: "C", level: 70 },
-        { name: "React", level: 85 },
-        { name: "HTML/CSS", level: 90 }
+        { name: "Java", level: "Advanced" },
+        { name: "Python", level: "Advanced" },
+        { name: "JavaScript", level: "Advanced" },
+        { name: "SQL", level: "Advanced" },
+        { name: "HTML/CSS", level: "Advanced" },
+        { name: "C", level: "Familiar" }
       ],
     },
     {
@@ -125,11 +115,13 @@ const EnhancedPortfolio = () => {
       borderColor: "border-green-500",
       bgGradient: "from-green-500/20 to-green-600/20",
       skills: [
-        { name: "Node.js", level: 80 },
-        { name: "Express", level: 75 },
-        { name: "JavaFX", level: 70 },
-        { name: "JUnit", level: 85 },
-        { name: "Tailwind", level: 90 }
+        { name: "React", level: "Advanced" },
+        { name: "Node.js", level: "Advanced" },
+        { name: "Express", level: "Advanced" },
+        { name: "Tailwind", level: "Advanced" },
+        { name: "JavaFX", level: "Intermediate" },
+        { name: "JUnit", level: "Intermediate" },
+        
       ],
     },
     {
@@ -138,17 +130,30 @@ const EnhancedPortfolio = () => {
       borderColor: "border-purple-500",
       bgGradient: "from-purple-500/20 to-purple-600/20",
       skills: [
-        { name: "AWS", level: 75 },
-        { name: "MySQL", level: 80 },
-        { name: "Git", level: 85 },
-        { name: "Tableau", level: 70 },
-        { name: "Pandas", level: 85 },
-        { name: "Jupyter", level: 80 }
+        { name: "AWS", level: "Advanced" },
+        { name: "MongoDB", level: "Advanced" },
+        { name: "PostgreSQL", level: "Intermediate" },
+        { name: "MySQL", level: "Intermediate" },
+        { name: "Git", level: "Advanced" },
+        { name: "Tableau", level: "Intermediate" },
+        { name: "Pandas", level: "Intermediate" },
+        { name: "Jupyter", level: "Advanced" },
       ],
     },
   ];
 
   const projects = [
+    {
+      id: 0,
+      title: "Clutch City Insurance Website",
+      description: "Developed and deployed a full-stack e-commerce and online platform using React, Node.js, and Tailwind CSS on AWS infrastructure that allow clients to connect with insurance agents.",
+      image: projectImages.CCI,
+      tags: ["React", "Node.js", "Express", "JavaScript", "Tailwind", "AWS", "APIs"],
+      duration: "3 months",
+      team: "1 members",
+      achievements: ["Implemented secure payment processing via Stripe Payments", "Added security features that prevented spam, DDoS, XSS, adn injection attacks", "Allowed users to connect with insurance agents with ease", "Single-handedly reduced operational cost by 76%"],
+      demoLink: "https://ccihou.com/"
+    },
     {
       id: 1,
       title: "Brigham and Women's Hospital Application",
@@ -157,8 +162,8 @@ const EnhancedPortfolio = () => {
       tags: ["Java", "JavaFX", "SQL", "AWS"],
       duration: "4 months",
       team: "11 members",
-      achievements: ["Reduced database retrival time by 500%", "Implemented Google auth, SHA-256 Hashing, and salting secruity features", "Enhanced user satisfaction"],
-      reportLink: "#"
+      achievements: ["Reduced database retrival time by 500%", "Implemented Google auth, SHA-256 Hashing, and salting secruity features", "Facility map implementation with real-time updates"],
+      reportLink: "src/assets/BWH User Manual - Edward Dang.pdf",
     },
     {
       id: 2,
@@ -168,19 +173,18 @@ const EnhancedPortfolio = () => {
       tags: ["React", "Python", "Node.js", "MongoDB", "APIs", "Data Visualization"],
       duration: "6 months",
       team: "2 members",
-      achievements: ["Reduced manual reporting by 100%", "Real-time monitoring system", "Predictive modeling"],
+      achievements: ["Led a cross functional team", "Reduced manual reporting by 100%", "Real-time monitoring system", "Predictive modeling"],
       reportLink: "https://digital.wpi.edu/concern/student_works/mp48sh69h?locale=en"
     },
     {
       id: 3,
       title: "German Traffic Sign Recognition ML",
-      description: "Machine learning program that identifies German traffic signs with varying picture qualities using deep learning and computer vision techniques.",
+      description: "Machine learning program that identifies German traffic signs with varying picture qualities using machine learning and computer vision techniques.",
       image: projectImages.traffic,
-      tags: ["Python", "TensorFlow", "OpenCV", "ML"],
+      tags: ["Python", "Machine Learning", "Jupyter Notebook", "Pandas"],
       duration: "3 months",
       team: "1 members",
-      achievements: ["94% accuracy rate", "Real-time processing", "Robust to weather conditions"],
-      demoLink: "#",
+      achievements: ["92% accuracy rate", "Implemented different machine learning models", "Data augmentation techniques"],
       reportLink: TrafficReport
     },
     {
@@ -192,8 +196,7 @@ const EnhancedPortfolio = () => {
       duration: "4 months",
       team: "5 members",
       achievements: ["Published research paper", "Educational platform", "Security vulnerability testing"],
-      demoLink: "#",
-      reportLink: "#"
+      // reportLink: "#"
     }
   ];
 
@@ -206,6 +209,51 @@ const EnhancedPortfolio = () => {
   const themeClasses = darkMode 
     ? "bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white"
     : "bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-900";
+
+  const getLevelStyling = (level) => {
+    switch(level) {
+      case 'Expert':
+        return {
+          bgColor: 'bg-green-500/20',
+          textColor: 'text-green-400',
+          borderColor: 'border-green-500/50'
+        };
+      case 'Advanced':
+        return {
+          bgColor: 'bg-blue-500/20',
+          textColor: 'text-blue-400',
+          borderColor: 'border-blue-500/50'
+        };
+      case 'Intermediate':
+        return {
+          bgColor: 'bg-yellow-500/20',
+          textColor: 'text-yellow-400',
+          borderColor: 'border-yellow-500/50'
+        };
+      case 'Familiar':
+        return {
+          bgColor: 'bg-gray-500/20',
+          textColor: 'text-gray-400',
+          borderColor: 'border-gray-500/50'
+        };
+      default:
+        return {
+          bgColor: 'bg-gray-500/20',
+          textColor: 'text-gray-400',
+          borderColor: 'border-gray-500/50'
+        };
+    }
+  };
+
+  const getProgressPercentage = (level) => {
+    switch(level) {
+      case 'Expert': return 100;
+      case 'Advanced': return 80;
+      case 'Intermediate': return 65;
+      case 'Familiar': return 30;
+      default: return 10;
+    }
+  };
 
   return (
     <div className={`min-h-screen transition-all duration-500 ${themeClasses}`}>
@@ -300,7 +348,8 @@ const EnhancedPortfolio = () => {
                   </h3>
                   <p className="text-lg text-gray-300 leading-relaxed">
                     I am a recent college graduate from Worcester Polytechnic Institute (WPI) with a double degree in Computer Science and Data Science. My passion for technology stems from a desire to simplify everyday tasks 
-                    while optimizing processes and creating meaningful impact.
+                    while optimizing processes and creating meaningful impact. One of my core values is to always be learning and growing, 
+                    and I strive to apply this mindset to every aspect of my life.
                   </p>
                 </div>
                 
@@ -356,24 +405,32 @@ const EnhancedPortfolio = () => {
                   </div>
                   <h3 className="text-xl font-semibold mb-6 text-center">{category.title}</h3>
                   <div className="space-y-4">
-                    {category.skills.map((skill, i) => (
-                      <div key={i} className="space-y-2">
-                        <div className="flex justify-between text-sm">
-                          <span>{skill.name}</span>
-                          <span>{skill.level}%</span>
+                    {category.skills.map((skill, i) => {
+                      const styling = getLevelStyling(skill.level);
+                      const progressPercentage = getProgressPercentage(skill.level);
+                      return (
+                        <div key={i} className="space-y-2">
+                          <div className="flex justify-between items-center">
+                            <span className="text-white font-medium">{skill.name}</span>
+                            <span 
+                              className={`px-2 py-1 rounded-full text-xs font-semibold border ${styling.bgColor} ${styling.textColor} ${styling.borderColor}`}
+                            >
+                              {skill.level}
+                            </span>
+                          </div>
+                          <div className="w-full bg-gray-700 rounded-full h-2">
+                            <div
+                              className={`h-2 rounded-full transition-all duration-1000 ease-out ${
+                                category.borderColor.includes('blue') ? 'bg-gradient-to-r from-blue-400 to-blue-600' :
+                                category.borderColor.includes('green') ? 'bg-gradient-to-r from-green-400 to-green-600' :
+                                'bg-gradient-to-r from-purple-400 to-purple-600'
+                              }`}
+                              style={{ width: `${progressPercentage}%` }}
+                            ></div>
+                          </div>
                         </div>
-                        <div className="w-full bg-gray-700 rounded-full h-2">
-                          <div
-                            className={`h-2 rounded-full bg-gradient-to-r ${
-                              category.borderColor.includes('blue') ? 'from-blue-400 to-blue-600' :
-                              category.borderColor.includes('green') ? 'from-green-400 to-green-600' :
-                              'from-purple-400 to-purple-600'
-                            } transition-all duration-1000 ease-out`}
-                            style={{ width: `${skill.level}%` }}
-                          ></div>
-                        </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               ))}
@@ -395,6 +452,7 @@ const EnhancedPortfolio = () => {
               Featured Projects
             </h2>
             
+            {/* Project Details */}
             <div className="grid gap-12">
               {projects.map((project, index) => (
                 <div
@@ -405,7 +463,9 @@ const EnhancedPortfolio = () => {
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-96 object-cover rounded-xl shadow-lg group-hover:scale-105 transition-transform duration-500"
+                      className={`w-full h-96 rounded-xl shadow-lg group-hover:scale-105 transition-transform duration-500 ${
+                        project.id === 0 ? 'object-contain bg-white/5' : 'object-cover'
+                      }`}
                     />
                   </div>
                   
@@ -421,6 +481,7 @@ const EnhancedPortfolio = () => {
                       ))}
                     </div>
                     
+                    {/* Project Specs */}
                     <div className="grid grid-cols-2 gap-4 text-sm text-gray-400">
                       <div className="flex items-center gap-2">
                         <Calendar className="w-4 h-4" />
@@ -432,6 +493,7 @@ const EnhancedPortfolio = () => {
                       </div>
                     </div>
                     
+                    {/* Achievements */}
                     <div>
                       <h4 className="font-semibold mb-2">Key Achievements:</h4>
                       <ul className="text-sm text-gray-300 space-y-1">
@@ -443,18 +505,19 @@ const EnhancedPortfolio = () => {
                         ))}
                       </ul>
                     </div>
-                    
-                    
 
                     <div className="flex gap-4">
                       { project.demoLink && (
                         <a
                         href={project.demoLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="flex items-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg transition-colors duration-300"
                       > 
                         <span>Live Demo</span>
                       </a>
                       )}
+                      { project.reportLink && (
                       <a
                         href={project.reportLink}
                         className="flex items-center gap-2 px-4 py-2 bg-gray-600 hover:bg-gray-700 rounded-lg transition-colors duration-300"
@@ -464,6 +527,7 @@ const EnhancedPortfolio = () => {
                         <FileText className="w-4 h-4" />
                         <span>Report</span>
                       </a>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -486,7 +550,7 @@ const EnhancedPortfolio = () => {
               Let's Connect
             </h2>
             
-            <div className="grid md:grid-cols-2 gap-12">
+            <div className="grid md:grid-cols-1 gap-12">
               {/* Contact Info */}
               <div className="space-y-8">
                 <div>
@@ -498,7 +562,7 @@ const EnhancedPortfolio = () => {
                 
                 <div className="space-y-6">
                   <a
-                    href=""
+                    href="mailto:contact@edwarddang.com"
                     className="flex items-center gap-4 p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-white/20"
                   >
                     <Mail className="w-8 h-8 text-blue-400" />
@@ -535,59 +599,6 @@ const EnhancedPortfolio = () => {
                   </a>
                 </div>
               </div>
-              
-              {/* Contact Form */}
-              <div className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium mb-2">Name</label>
-                  <input
-                    type="text"
-                    value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg focus:border-blue-400 focus:outline-none transition-colors duration-300"
-                    placeholder="Your name"
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium mb-2">Email</label>
-                  <input
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg focus:border-blue-400 focus:outline-none transition-colors duration-300"
-                    placeholder="your.email@example.com"
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium mb-2">Message</label>
-                  <textarea
-                    value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg focus:border-blue-400 focus:outline-none transition-colors duration-300 h-32 resize-none"
-                    placeholder="Tell me about your project or just say hello!"
-                  ></textarea>
-                </div>
-                
-                <button
-                  type="submit"
-                  onClick={handleFormSubmit}
-                  disabled={formStatus === 'sending'}
-                  className="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 rounded-lg font-semibold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                >
-                  {formStatus === 'sending' ? (
-                    <>
-                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                      Sending...
-                    </>
-                  ) : formStatus === 'success' ? (
-                    <>✅ Message Sent!</>
-                  ) : (
-                    <>Send Message</>
-                  )}
-                </button>
-              </div>
             </div>
           </div>
         </div>
@@ -607,10 +618,7 @@ const EnhancedPortfolio = () => {
       <footer className="py-8 px-6 border-t border-white/10">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-gray-400">
-            © 2025 Edward Dang. Built with React & Tailwind CSS.
-          </p>
-          <p className="text-sm text-gray-500 mt-2">
-            Designed & developed with ❤️ for meaningful connections
+            © 2025 Edward Dang
           </p>
         </div>
       </footer>
