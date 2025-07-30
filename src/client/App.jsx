@@ -24,9 +24,6 @@ const EnhancedPortfolio = () => {
   const [isVisible, setIsVisible] = useState({});
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [typedText, setTypedText] = useState('');
-  const [darkMode, setDarkMode] = useState(true);
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [formStatus, setFormStatus] = useState('');
 
   const fullText = "Edward Dang";
   const subtitle = "Full-Stack Developer & Data Scientist";
@@ -200,10 +197,6 @@ const EnhancedPortfolio = () => {
     { icon: <Plane className="w-5 h-5" />, text: "Travel" }
   ];
 
-  const themeClasses = darkMode 
-    ? "bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white"
-    : "bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-900";
-
   const getLevelStyling = (level) => {
     switch(level) {
       case 'Expert':
@@ -250,7 +243,7 @@ const EnhancedPortfolio = () => {
   };
 
   return (
-    <div className={`min-h-screen transition-all duration-500 ${themeClasses}`}>
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
         <div className="max-w-6xl mx-auto px-6 py-4">
