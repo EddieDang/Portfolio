@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronUp, Mail, Github, Linkedin, FileText, User, Code, Briefcase, Phone, MapPin, Calendar, Award, Coffee, Camera, Dumbbell, Plane } from 'lucide-react';
+import { ChevronUp, Mail, File, Github, Linkedin, FileText, User, Code, Briefcase, Phone, MapPin, Calendar, Award, Coffee, Camera, Dumbbell, Plane } from 'lucide-react';
 
 // Images
 import Me from '../assets/EDang.jpg';
@@ -9,13 +9,7 @@ import Traffic from '../assets/GermanTrafficSigns.png';
 import Security from '../assets/SSDLC.png';
 import CCI from '../assets/CCI.png';
 
-// Reports
-// import Resume from '../assets/EDangResume.pdf';
-// import BWHReport from "../assets/Brigham and Women's Hospital Application - Edward Dang.pdf";
-import TrafficReport from '../assets/German Traffic Sign Machine Learning Program - Edward Dang.pdf';
-
-
-// Mock data for the portfolio
+// Icons
 const profileImage = Me;
 const projectImages = {
   bwh: BWH,
@@ -185,7 +179,7 @@ const EnhancedPortfolio = () => {
       duration: "3 months",
       team: "1 members",
       achievements: ["92% accuracy rate", "Implemented different machine learning models", "Data augmentation techniques"],
-      reportLink: TrafficReport
+      reportLink: "src/assets/German Traffic Sign Machine Learning Program - Edward Dang.pdf"
     },
     {
       id: 4,
@@ -334,7 +328,7 @@ const EnhancedPortfolio = () => {
                   <img
                     src={profileImage}
                     alt="Edward Dang"
-                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover object-top hover:scale-110 transition-transform duration-500"
                   />
                 </div>
                 
@@ -344,7 +338,7 @@ const EnhancedPortfolio = () => {
                 <div>
                   <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
                     <User className="w-6 h-6 text-blue-400" />
-                    Hello there! 👋
+                    Hello there!
                   </h3>
                   <p className="text-lg text-gray-300 leading-relaxed">
                     I am a recent college graduate from Worcester Polytechnic Institute (WPI) with a double degree in Computer Science and Data Science. My passion for technology stems from a desire to simplify everyday tasks 
@@ -582,6 +576,19 @@ const EnhancedPortfolio = () => {
                     <div>
                       <div className="font-semibold">LinkedIn</div>
                       <div className="text-gray-400">Connect with me</div>
+                    </div>
+                  </a>
+
+                  <a
+                    href="https://www.linkedin.com/in/edwarddang3/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-white/20"
+                  >
+                    <File className="w-8 h-8 text-blue-400" />
+                    <div>
+                      <div className="font-semibold">Resume</div>
+                      <div className="text-gray-400">Check out my experience</div>
                     </div>
                   </a>
                   
