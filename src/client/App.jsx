@@ -140,32 +140,33 @@ const EnhancedPortfolio = () => {
       description: "Developed and deployed a full-stack e-commerce and online platform using React, Node.js, and Tailwind CSS on AWS infrastructure that allow clients to connect with insurance agents.",
       image: projectImages.CCI,
       tags: ["React", "Node.js", "Express", "JavaScript", "Tailwind", "AWS", "APIs"],
-      duration: "3 months",
+      duration: "4 months",
       team: "1 members",
-      achievements: ["Implemented secure payment processing via Stripe Payments", "Added security features that prevented spam, DDoS, XSS, adn injection attacks", "Allowed users to connect with insurance agents with ease", "Single-handedly reduced operational cost by 76%"],
+      achievements: ["Implemented secure payment processing via Stripe Payments", "Added security features that prevented spam, DDoS, XSS, and injection attacks", "Allowed users to connect with insurance agents with ease", "Single-handedly reduced operational cost by 92%"],
       demoLink: "https://ccihou.com/"
     },
     {
       id: 1,
-      title: "Brigham and Women's Hospital Application",
-      description: "A comprehensive dashboard application for employees and patients at Brigham and Women's Hospital, featuring real-time data visualization and patient management systems.",
-      image: projectImages.bwh,
-      tags: ["Java", "JavaFX", "SQL", "AWS"],
-      duration: "4 months",
-      team: "11 members",
-      achievements: ["Reduced database retrival time by 500%", "Implemented Google auth, SHA-256 Hashing, and salting secruity features", "Facility map implementation with real-time updates"],
-      reportLink: "src/assets/BWH User Manual - Edward Dang.pdf",
-    },
-    {
-      id: 2,
       title: "360 Energy Management Dashboard",
       description: "A web-based dashboard for 360 Energy to monitor and manage their solar panels and battery stations, with predictive analytics and performance optimization.",
       image: projectImages.energy,
       tags: ["React", "Python", "Node.js", "MongoDB", "APIs", "Data Visualization"],
-      duration: "6 months",
+      duration: "9 months",
       team: "2 members",
-      achievements: ["Led a cross functional team", "Reduced manual reporting by 100%", "Real-time monitoring system", "Predictive modeling"],
+      achievements: ["Lead a cross functional team", "Reduced manual reporting by 100% of battery swaps", "Real-time monitoring system of solar panel data", "Automated predictive modeling"],
       reportLink: "https://digital.wpi.edu/concern/student_works/mp48sh69h?locale=en"
+    },
+    {
+      id: 2,
+      title: "Brigham and Women's Hospital Application",
+      description: "A comprehensive dashboard application for employees and patients at Brigham and Women's Hospital, featuring real-time data visualization and patient management systems.",
+      image: projectImages.bwh,
+      tags: ["Java", "JavaFX", "SQL", "AWS", "PostgreSQL"],
+      duration: "4 months",
+      team: "11 members",
+      achievements: ["Reduced database retrival time by 500%", "Implemented Google auth, SHA-256 Hashing, and salting secruity features", "Facility map implementation with real-time updates", "Implemented map pathfinding feature"],
+      reportLink: "/BWH User Manual - Edward Dang.pdf",
+      
     },
     {
       id: 3,
@@ -175,8 +176,8 @@ const EnhancedPortfolio = () => {
       tags: ["Python", "Machine Learning", "Jupyter Notebook", "Pandas"],
       duration: "3 months",
       team: "1 members",
-      achievements: ["92% accuracy rate", "Implemented different machine learning models", "Data augmentation techniques"],
-      reportLink: "src/assets/German Traffic Sign Machine Learning Program - Edward Dang.pdf"
+      achievements: ["92% accuracy rate", "Implemented ResNet50, VGG16, CNN, and Custom CNN machine learning models", "Data augmentation techniques"],
+      reportLink: "/German Traffic Sign Machine Learning Program - Edward Dang.pdf"
     },
     {
       id: 4,
