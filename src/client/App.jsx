@@ -24,6 +24,7 @@ const EnhancedPortfolio = () => {
   const [isVisible, setIsVisible] = useState({});
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [typedText, setTypedText] = useState('');
+  const [showNavLogo, setShowNavLogo] = useState(false);
 
   const fullText = "Edward Dang";
   const subtitle = "Full-Stack Developer & Data Scientist";
@@ -42,40 +43,42 @@ const EnhancedPortfolio = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Scroll detection for animations and back-to-top button
   useEffect(() => {
-    const handleScroll = () => {
-      const scrolled = window.scrollY;
-      setShowBackToTop(scrolled > 300);
+  const handleScroll = () => {
+    const scrolled = window.scrollY;
+    setShowBackToTop(scrolled > 300);
+    
+    // Check if scrolled past hero section
+    setShowNavLogo(scrolled > window.innerHeight * 0.8);
 
-      // Check which section is in view
-      const sections = ['home', 'about', 'skills', 'projects', 'contact'];
-      const current = sections.find(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
-        }
-        return false;
-      });
-      if (current) setActiveSection(current);
+    // Check which section is in view
+    const sections = ['home', 'about', 'skills', 'projects', 'contact'];
+    const current = sections.find(section => {
+      const element = document.getElementById(section);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        return rect.top <= 100 && rect.bottom >= 100;
+      }
+      return false;
+    });
+    if (current) setActiveSection(current);
 
-      // Intersection observer for animations
-      const elements = document.querySelectorAll('.animate-on-scroll');
-      elements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        const isVisible = rect.top < window.innerHeight - 100;
-        const id = el.getAttribute('data-id');
-        if (isVisible && id) {
-          setIsVisible(prev => ({ ...prev, [id]: true }));
-        }
-      });
-    };
+    // Intersection observer for animations
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    elements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight - 100;
+      const id = el.getAttribute('data-id');
+      if (isVisible && id) {
+        setIsVisible(prev => ({ ...prev, [id]: true }));
+      }
+    });
+  };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial call
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  window.addEventListener('scroll', handleScroll);
+  handleScroll();
+  return () => window.removeEventListener('scroll', handleScroll);
+}, []);
 
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
@@ -249,13 +252,21 @@ const EnhancedPortfolio = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <div className="text-xl font-bold">ED</div>
+            <div 
+              className={`text-xl font-bold transition-all duration-500 ${
+                showNavLogo 
+                  ? 'opacity-100 transform translate-x-0' 
+                  : 'opacity-0 transform -translate-x-4 pointer-events-none'
+              }`}
+            >
+              Edward Dang
+            </div>
             <div className="hidden md:flex space-x-8">
               {['home', 'about', 'skills', 'projects', 'contact'].map(section => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
-                  className={`capitalize transition-all duration-300 hover:text-blue-400 ${
+                  className={`capitalize transition-all duration-300 hover:text-blue-400 py-2 ${
                     activeSection === section ? 'text-blue-400 border-b-2 border-blue-400' : ''
                   }`}
                 >
