@@ -280,10 +280,32 @@ const EnhancedPortfolio = () => {
 
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-cyan-600/20"></div>
+
+        {/* Hero Background */}
+        <div className="absolute inset-0">
+          {/* Base gradient */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/25 via-purple-600/25 to-cyan-600/25"></div>
+          {/* Glowing grid lines */}
+          <div className="absolute inset-0 opacity-20" style={{
+            backgroundImage: `
+              linear-gradient(rgba(59, 130, 246, 0.3) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(59, 130, 246, 0.3) 1px, transparent 1px),
+              linear-gradient(rgba(168, 85, 247, 0.2) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(168, 85, 247, 0.2) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px, 50px 50px, 100px 100px, 100px 100px'
+          }}></div>
+          {/* Animation*/}
+          <div className="absolute inset-0 bg-gradient-to-tr from-blue-400/10 via-purple-400/15 to-cyan-400/10 blur-2xl"></div>
+        </div>
+
         <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
           <div className="mb-8">
-            <h1 className="text-6xl md:text-8xl py-4 font-bold mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+            <h1 className="text-6xl md:text-8xl py-4 font-bold mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent"
+                style={{
+                  WebkitTextStroke: '2px rgba(59, 130, 246, 1)',
+                  filter: 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.8)) drop-shadow(0 0 5px rgba(59, 130, 246, 0.4))'
+                }}>
               {typedText}
               <span className="animate-pulse">|</span>
             </h1>
