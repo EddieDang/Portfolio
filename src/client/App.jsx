@@ -136,6 +136,16 @@ const EnhancedPortfolio = () => {
     },
   ];
 
+  const calculateMonths = (startDate) => {
+  const start = new Date(startDate);
+  const now = new Date();
+  
+  const months = (now.getFullYear() - start.getFullYear()) * 12 + 
+                 (now.getMonth() - start.getMonth());
+  
+  return months;
+};
+
   const projects = [
     {
       id: 0,
@@ -143,7 +153,7 @@ const EnhancedPortfolio = () => {
       description: "Developed and deployed a full-stack e-commerce and online platform using React, Node.js, and Tailwind CSS on AWS infrastructure that allow clients to connect with insurance agents.",
       image: projectImages.CCI,
       tags: ["React", "Node.js", "Express", "JavaScript", "Tailwind", "AWS", "APIs"],
-      duration: "4 months",
+      duration: `${calculateMonths('2025-05-22')} months`,
       team: "1 members",
       achievements: ["Implemented secure payment processing via Stripe Payments", "Added security features that prevented spam, DDoS, XSS, and injection attacks", "Allowed users to connect with insurance agents with ease", "Single-handedly reduced operational cost by 92%"],
       demoLink: "https://ccihou.com/"
