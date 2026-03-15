@@ -1,5 +1,24 @@
 import { Calendar, ExternalLink } from 'lucide-react';
 
+// ─── THEME ────────────────────────────────────────────────────────────────────
+const THEME = {
+  primary:   '#004643',
+  secondary: '#F0ede5',
+  tertiary:  '#0d0d0d',
+};
+function hexToRgba(hex, alpha) {
+  const r = parseInt(hex.slice(1,3),16), g = parseInt(hex.slice(3,5),16), b = parseInt(hex.slice(5,7),16);
+  return `rgba(${r},${g},${b},${alpha})`;
+}
+const t = {
+  primary:     THEME.primary,
+  secondary:   THEME.secondary,
+  tertiary:    THEME.tertiary,
+  primaryAt:   (o) => hexToRgba(THEME.primary,   o),
+  secondaryAt: (o) => hexToRgba(THEME.secondary, o),
+  tertiaryAt:  (o) => hexToRgba(THEME.tertiary,  o),
+};
+// ─────────────────────────────────────────────────────────────────────────────
 
 export default function ProjectCard({ isVisible }) {
   const CDN = import.meta.env.VITE_CDN_URL;
@@ -40,8 +59,8 @@ export default function ProjectCard({ isVisible }) {
       projectUrl: `${CDN}/BWH User Manual - Edward Dang.pdf`,
       duration: "Feb 2024 - May 2024",
       achievements: [
-        "Reduced database retrival time by 500%",
-        "Implemented Google auth, SHA-256 Hashing, and salting secruity features",
+        "Reduced database retrieval time by 500%",
+        "Implemented Google auth, SHA-256 Hashing, and salting security features",
         "Facility map implementation with real-time updates",
         "Implemented map pathfinding feature"
       ],
@@ -80,11 +99,11 @@ export default function ProjectCard({ isVisible }) {
       <div className="max-w-6xl mx-auto">
         <div
           className={`animate-on-scroll transition-all duration-1000 ${
-            isVisible.projects ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-10'
+            isVisible.projects ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
           data-id="projects"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 py-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 py-2" style={{ color: t.secondary }}>
             Featured Projects
           </h2>
 
@@ -92,43 +111,68 @@ export default function ProjectCard({ isVisible }) {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 items-center bg-white/5 rounded-2xl p-8 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-500 group`}
+                className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 items-center rounded-2xl p-8 backdrop-blur-sm transition-all duration-500 group`}
+                style={{
+                  backgroundColor: t.secondaryAt(0.05),
+                  border: `1px solid ${t.secondaryAt(0.12)}`
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.backgroundColor = t.secondaryAt(0.1);
+                  e.currentTarget.style.borderColor = t.secondaryAt(0.25);
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.backgroundColor = t.secondaryAt(0.05);
+                  e.currentTarget.style.borderColor = t.secondaryAt(0.12);
+                }}
               >
                 <div className="flex-1">
                   <img
                     src={project.imageUrl}
                     alt={project.title}
                     className={`w-full h-96 rounded-xl shadow-lg group-hover:scale-105 transition-transform duration-500 ${
-                      index === 0 ? 'object-contain bg-white/5' : 'object-cover'
+                      index === 0 ? 'object-contain' : 'object-cover'
                     }`}
+                    style={index === 0 ? { backgroundColor: t.secondaryAt(0.05) } : {}}
                   />
                 </div>
 
                 <div className="flex-1 space-y-4">
-                  <h3 className="text-2xl font-bold">{project.title}</h3>
-                  <p className="text-gray-300 leading-relaxed">{project.description}</p>
+                  <h3 className="text-2xl font-bold" style={{ color: t.secondary }}>
+                    {project.title}
+                  </h3>
+                  <p className="leading-relaxed" style={{ color: t.secondaryAt(0.75) }}>
+                    {project.description}
+                  </p>
 
                   <div className="flex flex-wrap gap-2">
                     {project.techStack.map(tag => (
-                      <span key={tag} className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm border border-blue-500/30">
+                      <span
+                        key={tag}
+                        className="px-3 py-1 rounded-full text-sm"
+                        style={{
+                          backgroundColor: t.primaryAt(0.6),
+                          color: t.secondary,
+                          border: `1px solid ${t.secondaryAt(0.25)}`
+                        }}
+                      >
                         {tag}
                       </span>
                     ))}
                   </div>
 
                   {project.duration && (
-                    <div className="flex items-center gap-2 text-sm text-gray-400">
+                    <div className="flex items-center gap-2 text-sm" style={{ color: t.secondaryAt(0.5) }}>
                       <Calendar className="w-4 h-4" />
                       <span>{project.duration}</span>
                     </div>
                   )}
 
                   <div>
-                    <h4 className="font-semibold mb-2">Key Achievements:</h4>
-                    <ul className="text-sm text-gray-300 space-y-1">
+                    <h4 className="font-semibold mb-2" style={{ color: t.secondary }}>Key Achievements:</h4>
+                    <ul className="text-sm space-y-1" style={{ color: t.secondaryAt(0.75) }}>
                       {project.achievements.filter(a => a).map((achievement, idx) => (
                         <li key={idx} className="flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 bg-green-400 rounded-full flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: t.secondary }} />
                           {achievement}
                         </li>
                       ))}
@@ -140,7 +184,14 @@ export default function ProjectCard({ isVisible }) {
                       href={project.projectUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg transition-colors duration-300"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105"
+                      style={{
+                        backgroundColor: t.primary,
+                        color: t.secondary,
+                        border: `1px solid ${t.secondaryAt(0.3)}`
+                      }}
+                      onMouseEnter={e => e.currentTarget.style.backgroundColor = t.primaryAt(0.7)}
+                      onMouseLeave={e => e.currentTarget.style.backgroundColor = t.primary}
                     >
                       <ExternalLink className="w-4 h-4" />
                       <span>View Project</span>
