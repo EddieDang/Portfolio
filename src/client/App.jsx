@@ -160,7 +160,6 @@ const EnhancedPortfolio = () => {
 
                 <div className="space-y-4">
                   {[
-                    { href: "mailto:contact@edwarddang.com",            Icon: Mail,    label: "Email",    sub: "contact@edwarddang.com" },
                     { href: "https://www.linkedin.com/in/edwarddang3/", Icon: Linkedin, label: "LinkedIn", sub: "Connect with me" },
                     { href: "https://www.linkedin.com/in/edwarddang3/", Icon: File,     label: "Resume",   sub: "Check out my experience" },
                     { href: "https://github.com/EddieDang",              Icon: Github,   label: "GitHub",   sub: "View my code" },
